@@ -16,6 +16,7 @@ fields as (
         campaign_id,
         ad_group_name,
         ad_group_id,
+        ad_network_type,
         base_url,
         url_host,
         url_path,
@@ -27,6 +28,9 @@ fields as (
         spend,
         clicks,
         impressions
+        {% for metric in var('google_ads__campaign_stats_passthrough_metrics') %}
+        , sum({{ metric }}) as {{ metric }}
+        {% endfor %}
     from unioned
 )
 
