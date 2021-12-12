@@ -44,6 +44,7 @@ with stats as (
         campaigns.campaign_id,
         ad_groups.ad_group_name,
         ad_groups.ad_group_id,
+        stats.ad_network_type,
         final_url.base_url,
         final_url.url_host,
         final_url.url_path,
@@ -71,7 +72,7 @@ with stats as (
         on ad_groups.campaign_id = campaigns.campaign_id
     left join accounts
         on campaigns.account_id = accounts.account_id
-    {{ dbt_utils.group_by(15) }}
+    {{ dbt_utils.group_by(16) }}
 
 )
 

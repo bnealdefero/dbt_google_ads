@@ -29,6 +29,7 @@ with stats as (
         campaigns.campaign_id,
         null as ad_group_name,
         null as ad_group_id,
+        lower(stats.ad_network_type) as ad_network_type,
         null as base_url,
         null as url_host,
         null as url_path,
@@ -40,14 +41,16 @@ with stats as (
         sum(stats.spend) as spend,
         sum(stats.clicks) as clicks,
         sum(stats.impressions) as impressions
-
+        {% for metric in var('google_ads__campaign_stats_passthrough_metrics') %}
+        , sum(stats.{{ metric }}) as {{ metric }}
+        {% endfor %}
 
     from stats
     left join campaigns
         on stats.campaign_id = campaigns.campaign_id
     left join accounts
         on campaigns.account_id = accounts.account_id
-    {{ dbt_utils.group_by(15) }}
+    {{ dbt_utils.group_by(16) }}
 
 )
 

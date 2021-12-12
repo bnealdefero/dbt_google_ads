@@ -20,4 +20,5 @@ vars:
   api_source: adwords
   google_ads__url_passthrough_metrics: []
   google_ads__criteria_passthrough_metrics: []
-  google_ads__ad_stats_passthrough_metrics: []
+  google_ads__ad_stats_passthrough_metrics: ['conversions']
+  google_ads__campaign_stats_passthrough_metrics: ['conversions']
