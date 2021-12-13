@@ -44,7 +44,7 @@ with stats as (
         campaigns.campaign_id,
         ad_groups.ad_group_name,
         ad_groups.ad_group_id,
-        stats.ad_network_type,
+        lower(stats.ad_network_type) as ad_network_type,
         final_url.base_url,
         final_url.url_host,
         final_url.url_path,
