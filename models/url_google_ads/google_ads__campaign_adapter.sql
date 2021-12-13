@@ -29,7 +29,7 @@ fields as (
         clicks,
         impressions
         {% for metric in var('google_ads__campaign_stats_passthrough_metrics') %}
-        , sum({{ metric }}) as {{ metric }}
+        , {{ metric }}
         {% endfor %}
     from unioned
 )
