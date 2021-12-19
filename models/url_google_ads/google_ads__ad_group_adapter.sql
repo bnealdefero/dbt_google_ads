@@ -54,7 +54,22 @@ with stats as (
 
     {{ dbt_utils.group_by(8) }}
 
+), dsas as (
+    -- get rows that exist in staged that do not exist in adapter
+    SELECT
+        a.*
+    FROM
+        fields a
+        LEFT JOIN
+        {{ref('google_ads_url_adapter')}} b
+        ON a.campaign_id = b.campaign_id
+    WHERE
+        b.campaign_id IS NULL
+), unioned as (
+    select * from fields
+    union
+    select * from dsas
 )
 
 select *
-from fields
+from unioned
