@@ -61,7 +61,7 @@ with stats as (
     FROM
         fields a
         LEFT JOIN
-        {{ref('google_ads_url_adapter')}} b
+        {{ref('google_ads__url_ad_adapter')}} b
         ON a.campaign_id = b.campaign_id
     WHERE
         b.campaign_id IS NULL
