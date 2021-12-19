@@ -44,7 +44,7 @@ with stats as (
     from stats
 
     left join ad_groups
-        on stats.ad_group_id = ad_groups.ad_group_id
+        on stats.id = ad_groups.ad_group_id
 
     left join campaigns
         on ad_groups.campaign_id = campaigns.campaign_id
