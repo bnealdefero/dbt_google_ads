@@ -18,6 +18,8 @@ models:
         description: "{{ doc('ad_group_name') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: ad_network_type
+        description: "the ad network type. NEED tests for allowed types"
       - name: base_url
         description: "{{ doc('base_url') }}"
       - name: url_host
@@ -40,6 +42,8 @@ models:
         description: "{{ doc('clicks') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
       - name: criteria
         description: "{{ doc('criteria') }}"
       - name: criteria_type
@@ -76,6 +80,8 @@ models:
         description: "{{ doc('ad_group_name') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+      - name: ad_network_type
+        description: "the ad network type. NEED tests for allowed types"
       - name: base_url
         description: "{{ doc('base_url') }}"
       - name: url_host
@@ -98,6 +104,8 @@ models:
         description: "{{ doc('clicks') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
       - name: criteria
         description: "{{ doc('criteria') }}"
       - name: criteria_type
