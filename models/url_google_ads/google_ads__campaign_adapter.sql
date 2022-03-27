@@ -14,7 +14,7 @@ fields as (
         account_id,
         lower(campaign_name) as campaign_name,
         campaign_id,
-        coalesce(lower(ad_group_name),'dnull' as ad_group_name,
+        coalesce(lower(ad_group_name),'adgroup_null') as ad_group_name,
         coalesce(cast(ad_group_id as BIGINT),0) as ad_group_id,
         ad_network_type,
         lower(base_url) as base_url,
