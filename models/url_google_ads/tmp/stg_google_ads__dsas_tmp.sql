@@ -19,6 +19,8 @@ joined as (
         ON a.campaign_id = b.campaign_id
     WHERE
         b.campaign_id IS NULL
+        -- skiping imc
+        and a.account_id not in(1591985123)
 )
 
 select * from joined
