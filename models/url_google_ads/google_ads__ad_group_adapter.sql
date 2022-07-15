@@ -17,6 +17,7 @@ fields as (
         ad_group_name,
         ad_group_id,
         ad_network_type,
+        advertising_channel_type,
         base_url,
         url_host,
         url_path,
